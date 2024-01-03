@@ -44,12 +44,23 @@ reset.addEventListener('click', function (){
     upgrade[8].price=upgrade[8].og_price;
     upgrade[9].count=0;
     upgrade[9].price=upgrade[9].og_price;
+    document.getElementById("frame_1").style.display = "block";
+    document.getElementById("frame_2").style.display = "none";
 });
 //anname nupule voime skoori tosta//
 let btn_count=document.querySelector('#btn_count');
 btn_count.addEventListener('click', function (){
     score++;
-    console.log(score);});
+    if(document.getElementById("frame_1").style.display === "block")
+    {
+        document.getElementById("frame_1").style.display = "none";
+        document.getElementById("frame_2").style.display = "block";
+    }
+    else{
+        document.getElementById("frame_1").style.display = "block";
+        document.getElementById("frame_2").style.display = "none";
+    }
+});
 //array ostude jaoks//
 const purchases=[
     {price:1, count:0, og_price:1},
