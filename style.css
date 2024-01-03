@@ -1,1 +1,31 @@
-
+/*resetting browser css*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html, body{
+    font-size:12px;
+    font-family:"Times New Roman", Georgia, serif;
+    line-height: 1.7em;
+    background:cadetblue;
+    color:black;
+}
+button{
+    background-color:royalblue;
+    color:white;
+}
+#reset{
+    background-color: darkred;
+}
+#main_btn{
+    float:left;
+    width:50%;
+}
+#btn_arr{
+    float:right;
+    width:50%;
+}
+#btn_arr button{
+    display:block;
+}
