@@ -14,13 +14,23 @@ html, body{
 button{
     background-color:royalblue;
     color:white;
+    border-color:blue;
+}
+button :hover{
+    cursor: pointer;
+}
+h1{
+    font-size:40px;
+    margin:1em;
 }
 #reset{
     background-color: darkred;
+    border-color:red;
 }
 #main_btn{
     float:left;
     width:50%;
+    text-align:center;
 }
 #btn_arr{
     float:right;
@@ -28,4 +38,19 @@ button{
 }
 #btn_arr button{
     display:block;
+    line-height:2;
+    margin:1em;
+}
+#btn_count{
+    background-color: cadetblue;
+    border-style:none;
+}
+#frame_1{
+    display:block;
+}
+#frame_2{
+    display:none;
+}
+#obj_0, #obj_1, #obj_2, #obj_3, #obj_4, #obj_5, #obj_6, #obj_7, #obj_8, #obj_9{
+    background-color: #01737155;
 }
