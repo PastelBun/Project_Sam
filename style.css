@@ -27,7 +27,7 @@ h1{
     background-color: darkred;
     border-color:red;
 }
-#main_btn{
+#main{
     float:left;
     width:50%;
     text-align:center;
@@ -40,6 +40,7 @@ h1{
     display:block;
     line-height:2;
     margin:1em;
+    width:100%
 }
 #btn_count{
     background-color: cadetblue;
@@ -47,10 +48,24 @@ h1{
 }
 #frame_1{
     display:block;
+    width:100%;
 }
 #frame_2{
     display:none;
+    width:100%;
 }
 #obj_0, #obj_1, #obj_2, #obj_3, #obj_4, #obj_5, #obj_6, #obj_7, #obj_8, #obj_9{
     background-color: #01737155;
+}
+#price0, #price1, #price2, #price3, #price4, #price5, #price6, #price7, #price8, #price9, #upg_price0, #upg_price1, #upg_price2, #upg_price3, #upg_price4, #upg_price5, #upg_price6, #upg_price7, #upg_price8, #upg_price9{
+    font-size:12px;
+    float:right;
+}
+#count0, #count1, #count2, #count3, #count4, #count5, #count6, #count7, #count8, #count9, #upg_count0, #upg_count1, #upg_count2, #upg_count3, #upg_count4, #upg_count5, #upg_count6, #upg_count7, #upg_count8, #upg_count9{
+    font-size: 12px;
+    float:right;
+}
+.obj_txt{
+    float: left;
+    font-size: 24px;
 }
