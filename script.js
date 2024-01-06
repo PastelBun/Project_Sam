@@ -4,6 +4,7 @@ var score=0;
 let reset=document.querySelector('#reset');
 reset.addEventListener('click', function (){
     score=0;
+    /*
     purchases[0].count=0;
     purchases[0].price=purchases[0].og_price;
     purchases[1].count=0;
@@ -43,22 +44,57 @@ reset.addEventListener('click', function (){
     upgrade[8].count=0;
     upgrade[8].price=upgrade[8].og_price;
     upgrade[9].count=0;
-    upgrade[9].price=upgrade[9].og_price;
+    upgrade[9].price=upgrade[9].og_price;*/
+    purchases.every(rst_prch)
+    upgrade.every(rst_upgr)
     document.getElementById("frame_1").style.display = "block";
     document.getElementById("frame_2").style.display = "none";
 });
+function rst_prch(purchase){
+    purchase.count=0;
+    purchase.price=purchase.og_price
+}
+function rst_upgr(upgrade){
+    upgrade.count=0;
+    upgrade.price=upgrade.og_price
+}
+function auto() {
+    var bonus=
+        0.1*purchases[0].count*(1+upgrade[0].count)
+        +1*purchases[1].count*(1+upgrade[1].count)
+        +5*purchases[2].count*(1+upgrade[2].count)
+        +10*purchases[3].count*(1+upgrade[3].count)
+        +25*purchases[4].count*(1+upgrade[4].count)
+        +50*purchases[5].count*(1+upgrade[5].count)
+        +100*purchases[6].count*(1+upgrade[6].count)
+        +250*purchases[7].count*(1+upgrade[7].count)
+        +500*purchases[8].count*(1+upgrade[8].count)
+        +1000*purchases[9].count*(1+upgrade[9].count)
+    score = score + bonus
+}
+
 //anname nupule voime skoori tosta//
 let btn_count=document.querySelector('#btn_count');
 btn_count.addEventListener('click', function (){
-    score++;
-    if(document.getElementById("frame_1").style.display === "block")
+    score=score+1+
+        (0.1*purchases[0].count*(1+upgrade[0].count)
+        +1*purchases[1].count*(1+upgrade[1].count)
+        +5*purchases[2].count*(1+upgrade[2].count)
+        +10*purchases[3].count*(1+upgrade[3].count)
+        +25*purchases[4].count*(1+upgrade[4].count)
+        +50*purchases[5].count*(1+upgrade[5].count)
+        +100*purchases[6].count*(1+upgrade[6].count)
+        +250*purchases[7].count*(1+upgrade[7].count)
+        +500*purchases[8].count*(1+upgrade[8].count)
+        +1000*purchases[9].count*(1+upgrade[9].count));
+    if(document.getElementById("frame_1").style.display === "none")
     {
-        document.getElementById("frame_1").style.display = "none";
-        document.getElementById("frame_2").style.display = "block";
-    }
-    else{
         document.getElementById("frame_1").style.display = "block";
         document.getElementById("frame_2").style.display = "none";
+    }
+    else{
+        document.getElementById("frame_1").style.display = "none";
+        document.getElementById("frame_2").style.display = "block";
     }
 });
 //array ostude jaoks//
@@ -229,65 +265,50 @@ upg9.addEventListener('click', function (){
         upgrade[9].count=upgrade[9].count +1;
         upgrade[9].price=upgrade[9].price*10;
     }});
-function auto() {
-    var bonus=
-        0.1*purchases[0].count*(1+upgrade[0].count)
-        +1*purchases[1].count*(1+upgrade[1].count)
-        +5*purchases[2].count*(1+upgrade[2].count)
-        +10*purchases[3].count*(1+upgrade[3].count)
-        +25*purchases[4].count*(1+upgrade[4].count)
-        +50*purchases[5].count*(1+upgrade[5].count)
-        +100*purchases[6].count*(1+upgrade[6].count)
-        +250*purchases[7].count*(1+upgrade[7].count)
-        +500*purchases[8].count*(1+upgrade[8].count)
-        +1000*purchases[9].count*(1+upgrade[9].count)
-    score = score + bonus
-}
-
 //naitame mangijale skoori mangu alguses//
 setInterval(display,20);
 function display(){
     document.getElementById("punktid").innerHTML=score+' Energiat';
-    document.getElementById("price0").innerHTML=" Maksab "+purchases[0].price +' energiat';
+    document.getElementById("price0").innerHTML=" Maksab: "+purchases[0].price +' energiat';
     document.getElementById("count0").innerHTML=' Ostetud: '+ purchases[0].count;
-    document.getElementById("price1").innerHTML=" Maksab "+purchases[1].price +' energiat';
+    document.getElementById("price1").innerHTML=" Maksab: "+purchases[1].price +' energiat';
     document.getElementById("count1").innerHTML=' Ostetud: '+ purchases[1].count;
-    document.getElementById("price2").innerHTML=" Maksab "+purchases[2].price +' energiat';
+    document.getElementById("price2").innerHTML=" Maksab: "+purchases[2].price +' energiat';
     document.getElementById("count2").innerHTML=' Ostetud: '+ purchases[2].count;
-    document.getElementById("price3").innerHTML=" Maksab "+purchases[3].price +' energiat';
+    document.getElementById("price3").innerHTML=" Maksab: "+purchases[3].price +' energiat';
     document.getElementById("count3").innerHTML=' Ostetud: '+ purchases[3].count;
-    document.getElementById("price4").innerHTML=" Maksab "+purchases[4].price +' energiat';
+    document.getElementById("price4").innerHTML=" Maksab: "+purchases[4].price +' energiat';
     document.getElementById("count4").innerHTML=' Ostetud: '+ purchases[4].count;
-    document.getElementById("price5").innerHTML=" Maksab "+purchases[5].price +' energiat';
+    document.getElementById("price5").innerHTML=" Maksab: "+purchases[5].price +' energiat';
     document.getElementById("count5").innerHTML=' Ostetud: '+ purchases[5].count;
-    document.getElementById("price6").innerHTML=" Maksab "+purchases[6].price +' energiat';
+    document.getElementById("price6").innerHTML=" Maksab: "+purchases[6].price +' energiat';
     document.getElementById("count6").innerHTML=' Ostetud: '+ purchases[6].count;
-    document.getElementById("price7").innerHTML=" Maksab "+purchases[7].price +' energiat';
+    document.getElementById("price7").innerHTML=" Maksab: "+purchases[7].price +' energiat';
     document.getElementById("count7").innerHTML=' Ostetud: '+ purchases[7].count;
-    document.getElementById("price8").innerHTML=" Maksab "+purchases[8].price +' energiat';
+    document.getElementById("price8").innerHTML=" Maksab: "+purchases[8].price +' energiat';
     document.getElementById("count8").innerHTML=' Ostetud: '+ purchases[8].count;
-    document.getElementById("price9").innerHTML=" Maksab "+purchases[9].price +' energiat';
+    document.getElementById("price9").innerHTML=" Maksab: "+purchases[9].price +' energiat';
     document.getElementById("count9").innerHTML=' Ostetud: '+ purchases[9].count;
-    document.getElementById("upg_count0").innerHTML=" Võimendatud "+upgrade[0].count+" korda";
-    document.getElementById("upg_price0").innerHTML=" Maksab "+upgrade[0].price+' energiat';
-    document.getElementById("upg_count1").innerHTML=" Võimendatud "+upgrade[1].count+" korda";
-    document.getElementById("upg_price1").innerHTML=" Maksab "+upgrade[1].price+' energiat';
-    document.getElementById("upg_count2").innerHTML=" Võimendatud "+upgrade[2].count+" korda";
-    document.getElementById("upg_price2").innerHTML=" Maksab "+upgrade[2].price+' energiat';
-    document.getElementById("upg_count3").innerHTML=" Võimendatud "+upgrade[3].count+" korda";
-    document.getElementById("upg_price3").innerHTML=" Maksab "+upgrade[3].price+' energiat';
-    document.getElementById("upg_count4").innerHTML=" Võimendatud "+upgrade[4].count+" korda";
-    document.getElementById("upg_price4").innerHTML=" Maksab "+upgrade[4].price+' energiat';
-    document.getElementById("upg_count5").innerHTML=" Võimendatud "+upgrade[5].count+" korda";
-    document.getElementById("upg_price5").innerHTML=" Maksab "+upgrade[5].price+' energiat';
-    document.getElementById("upg_count6").innerHTML=" Võimendatud "+upgrade[6].count+" korda";
-    document.getElementById("upg_price6").innerHTML=" Maksab "+upgrade[6].price+' energiat';
-    document.getElementById("upg_count7").innerHTML=" Võimendatud "+upgrade[7].count+" korda";
-    document.getElementById("upg_price7").innerHTML=" Maksab "+upgrade[7].price+' energiat';
-    document.getElementById("upg_count8").innerHTML=" Võimendatud "+upgrade[8].count+" korda";
-    document.getElementById("upg_price8").innerHTML=" Maksab "+upgrade[8].price+' energiat';
-    document.getElementById("upg_count9").innerHTML=" Võimendatud "+upgrade[9].count+" korda";
-    document.getElementById("upg_price9").innerHTML=" Maksab "+upgrade[9].price+' energiat';
+    document.getElementById("upg_count0").innerHTML=" Võimendatud: "+upgrade[0].count+" korda";
+    document.getElementById("upg_price0").innerHTML=" Maksab: "+upgrade[0].price+' energiat';
+    document.getElementById("upg_count1").innerHTML=" Võimendatud: "+upgrade[1].count+" korda";
+    document.getElementById("upg_price1").innerHTML=" Maksab: "+upgrade[1].price+' energiat';
+    document.getElementById("upg_count2").innerHTML=" Võimendatud: "+upgrade[2].count+" korda";
+    document.getElementById("upg_price2").innerHTML=" Maksab: "+upgrade[2].price+' energiat';
+    document.getElementById("upg_count3").innerHTML=" Võimendatud: "+upgrade[3].count+" korda";
+    document.getElementById("upg_price3").innerHTML=" Maksab: "+upgrade[3].price+' energiat';
+    document.getElementById("upg_count4").innerHTML=" Võimendatud: "+upgrade[4].count+" korda";
+    document.getElementById("upg_price4").innerHTML=" Maksab: "+upgrade[4].price+' energiat';
+    document.getElementById("upg_count5").innerHTML=" Võimendatud: "+upgrade[5].count+" korda";
+    document.getElementById("upg_price5").innerHTML=" Maksab: "+upgrade[5].price+' energiat';
+    document.getElementById("upg_count6").innerHTML=" Võimendatud: "+upgrade[6].count+" korda";
+    document.getElementById("upg_price6").innerHTML=" Maksab: "+upgrade[6].price+' energiat';
+    document.getElementById("upg_count7").innerHTML=" Võimendatud: "+upgrade[7].count+" korda";
+    document.getElementById("upg_price7").innerHTML=" Maksab: "+upgrade[7].price+' energiat';
+    document.getElementById("upg_count8").innerHTML=" Võimendatud: "+upgrade[8].count+" korda";
+    document.getElementById("upg_price8").innerHTML=" Maksab: "+upgrade[8].price+' energiat';
+    document.getElementById("upg_count9").innerHTML=" Võimendatud: "+upgrade[9].count+" korda";
+    document.getElementById("upg_price9").innerHTML=" Maksab: "+upgrade[9].price+' energiat';
 
     if (score>=1e+100){
         document.getElementById('punktid').innerHTML= '&infin; energaiat';
