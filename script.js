@@ -45,8 +45,8 @@ reset.addEventListener('click', function (){
     upgrade[8].price=upgrade[8].og_price;
     upgrade[9].count=0;
     upgrade[9].price=upgrade[9].og_price;*/
-    purchases.every(rst_prch)
-    upgrade.every(rst_upgr)
+    purchases.forEach(rst_prch)
+    upgrade.forEach(rst_upgr)
     document.getElementById("frame_1").style.display = "block";
     document.getElementById("frame_2").style.display = "none";
 });
